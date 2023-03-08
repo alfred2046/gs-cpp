@@ -3,6 +3,8 @@ using namespace std;
 
 //base class
 class Employee{
+    protected: //protected class specifier
+        int allowance;
     private:
         int salary;
     public:
@@ -24,6 +26,12 @@ int Employee::getSalary(){
 class RoleEmployee: public Employee {
     public:
         string designation = "Manager";
+        void setAllowance(int a){
+            allowance = a;
+        }
+        int getAllowance(){
+            return allowance;
+        }
 };
 
 
@@ -65,7 +73,9 @@ int main(){
     RoleEmployee mgr;
     
     mgr.setSalary(25000);
+    mgr.setAllowance(200000);
     cout << mgr.designation << ", " << mgr.getSalary() << "\n";
+    cout << "protected allowance " << mgr.getAllowance() << "\n";
     cout << mgr.oneLiner << "\n";
 
     GrandChild gc;
